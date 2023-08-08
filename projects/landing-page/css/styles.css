@@ -16,6 +16,7 @@ body {
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
+    line-height: 1.5;
 }
 
 
@@ -189,7 +190,8 @@ ul#navbar__list{
 
 /* Footer Styles */
 .page__footer {
-    background: #000;
+    background-image: url('https://i.gifer.com/3JWq.gif');
+    background-size: contain;
     padding: 3em;
     color: #fff;
 }
@@ -217,6 +219,18 @@ section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
     text-align: right; 
+}
+
+/*Pictures of Characters*/
+#mario_with_star,
+#luigi_pop,
+#peach_run,
+#bowser_stare{
+    max-height: 400px;
+    min-height: 200px;
+    max-width: 100%;
+    height: auto;
+
 }
 
 /* Background Circles */
