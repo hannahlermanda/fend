@@ -11,8 +11,8 @@
 
 /* ---- Base Rules ---- */
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    background: rgb(0,84,171);
+    background: linear-gradient(180deg, rgba(0,84,171,1) 0%, rgba(246,16,0,1) 27%, rgba(0,156,10,1) 45%, rgba(255,68,147,1) 65%, rgba(0,0,0,1) 86%);
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
@@ -66,8 +66,12 @@ section {
 /* Navigation Styles*/
 .navbar__menu ul {
     padding-left: 0;
-    margin: 0;
-    text-align: right;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
 }
 
 .navbar__menu li {
@@ -88,6 +92,87 @@ section {
     transition: ease 0.3s all;
 }
 
+
+ul#navbar__list{
+    background: url("https://static.wikia.nocookie.net/fantendo/images/9/99/NSMBU_Sky_Background_1.png/revision/latest?cb=20121215224646");
+    background-size:cover;
+    background-repeat:no-repeat;
+    min-height: 150px;
+}
+
+.nav-link{
+    text-decoration: none;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    font-size: 2rem;
+}
+
+/*Character link nav*/
+
+.mario-link, .luigi-link, .peach-link, .bowser-link {
+    text-decoration: none;
+    font-size: 2rem;
+    color: #fff;
+    padding: 0.5em 1em;
+    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.mario-link {
+    color: rgba(246,16,0,1);
+    margin-left: 40px; 
+}
+
+.luigi-link {
+    color: rgba(0,156,10,1);
+}
+
+.peach-link {
+    color: rgba(255,68,147,1);
+}
+
+.bowser-link {
+    color: orange;
+    margin-right: 40px;
+}
+
+/* Define background colors for different characters */
+.mario-link:hover, .luigi-link:hover, .peach-link:hover, .bowser-link:hover {
+    background-size: 100%;
+    background-position: center; 
+    text-align: center;
+}
+
+.mario-link:hover {
+    background-color: rgba(246,16,0,1);
+    color: white;
+    text-shadow: none;
+}
+
+.luigi-link:hover {
+    background-color: rgba(0,156,10,1);
+    color: white;
+    text-shadow: none;
+}
+
+.peach-link:hover {
+    background-color: rgba(255,68,147,1);
+    color: white;
+    text-shadow: none;
+}
+
+.bowser-link:hover {
+    background-color: orange;
+    color: white;
+    text-shadow: none;
+}
+
+/* Highlight active link in the Navbar */
+.navbar__menu .menu__link.active {
+    background: #eeff00;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -95,6 +180,11 @@ section {
     top: 0;
     width: 100%;
     z-index: 5;
+}
+
+/*Hero Styles*/
+.main__hero{
+    color: white;
 }
 
 /* Footer Styles */
