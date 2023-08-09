@@ -8,6 +8,10 @@
  *
 */
 
+/*Whole Document*/
+html{
+    scroll-behavior: smooth;
+}
 
 /* ---- Base Rules ---- */
 body {
@@ -17,6 +21,7 @@ body {
     font-family: 'Merriweather', serif;
     color: #fff;
     line-height: 1.5;
+    scroll-behavior: smooth;
 }
 
 
@@ -44,6 +49,7 @@ h2 {
 p {
     line-height: 1.6em;
     color: #eee;
+    font-size: 20px;
 }
 
 /* ---- Layout Rules ---- */
@@ -72,7 +78,7 @@ section {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .navbar__menu li {
@@ -108,71 +114,23 @@ ul#navbar__list{
     font-size: 2rem;
 }
 
-/*Character link nav*/
-
-.mario-link, .luigi-link, .peach-link, .bowser-link {
-    text-decoration: none;
-    font-size: 2rem;
-    color: #fff;
-    padding: 0.5em 1em;
-    transition: background-color 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+/*Character link nav hover*/
+a.nav-link.mario:hover{
+    color: red;
 }
 
-.mario-link {
-    color: rgba(246,16,0,1);
-    margin-left: 40px; 
-}
-
-.luigi-link {
+a.nav-link.luigi:hover {
     color: rgba(0,156,10,1);
 }
 
-.peach-link {
+a.nav-link.princess-peach:hover {
     color: rgba(255,68,147,1);
 }
 
-.bowser-link {
+a.nav-link.bowser:hover {
     color: orange;
-    margin-right: 40px;
 }
 
-/* Define background colors for different characters */
-.mario-link:hover, .luigi-link:hover, .peach-link:hover, .bowser-link:hover {
-    background-size: 100%;
-    background-position: center; 
-    text-align: center;
-}
-
-.mario-link:hover {
-    background-color: rgba(246,16,0,1);
-    color: white;
-    text-shadow: none;
-}
-
-.luigi-link:hover {
-    background-color: rgba(0,156,10,1);
-    color: white;
-    text-shadow: none;
-}
-
-.peach-link:hover {
-    background-color: rgba(255,68,147,1);
-    color: white;
-    text-shadow: none;
-}
-
-.bowser-link:hover {
-    background-color: orange;
-    color: white;
-    text-shadow: none;
-}
-
-/* Highlight active link in the Navbar */
-.navbar__menu .menu__link.active {
-    background: #eeff00;
-    color: #fff;
-    transition: ease 0.3s all;
-}
 
 /* Header Styles */
 .page__header {
@@ -182,6 +140,12 @@ ul#navbar__list{
     width: 100%;
     z-index: 5;
 }
+
+/* Add a class to the active navigation link */
+.nav-active {
+    color: #ff0000; /* Set the desired color for the active link */
+    font-weight: bold; /* Set the desired font weight for the active link */
+  }
 
 /*Hero Styles*/
 .main__hero{
@@ -210,7 +174,6 @@ ul#navbar__list{
 
 @media only screen and (min-width: 35em){
     .landing__container {
-        max-width: 50em;
         padding: 4em;
     }
 }
@@ -231,6 +194,78 @@ section:nth-of-type(even) .landing__container {
     max-width: 100%;
     height: auto;
 
+}
+
+/*Bio Styling*/
+#mario .landing__container,
+#peach .landing__container {
+    text-align: right; /* Center the text */
+  }
+  
+  #mario h2,
+  #peach h2 {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 3em;
+    color: #fff;
+    border-bottom: 1px solid #cc1;
+    text-align: left;
+  }
+  
+  
+  #mario .content-container,
+  #peach .content-container,
+  #luigi .content-container,
+  #bowser .content-container {
+    display: flex;
+    flex-direction: row; /* Arrange children horizontally */
+    align-items: center; /* Vertically align children */
+    justify-content: center; /* Horizontally center children */
+    width: 100%;
+    margin-top: 1em; /* Add spacing above the content container */
+  }
+  
+  #mario #mario_with_star {
+    max-width: 50%;
+  }
+
+  #mario p,
+  #peach p {
+    flex: 1;
+    margin-left: 20px;
+    text-align: center;
+  }
+
+
+/* Styling for the Toggle Section button */
+.toggle-button {
+    position:relative;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 0; /* Hide text content */
+    background-image: url("https://www.svgrepo.com/show/13695/star.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 16px;
+}
+
+.toggle-button:hover {
+    background-image: url("https://www.svgrepo.com/show/13695/star.svg");
+    transform: rotate(180deg); 
+    transition: background-image 0.3s ease, transform 1s ease;
+}
+
+.toggle-button.spin .show-text,
+.toggle-button.spin .hide-text {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Background Circles */
@@ -292,6 +327,34 @@ section:nth-of-type(3n + 1) .landing__container::after {
     opacity: 0;
     transition: ease 0.5s all;
 }
+
+/* Highlight active navigation link */
+a.nav-link.mario.active {
+    font-weight: bold;
+    color: #ff0000; 
+}
+
+a.nav-link.luigi.active {
+    font-weight: bold;
+    color: green; 
+}
+
+a.nav-link.princess-peach.active {
+    font-weight: bold;
+    color: rgba(255,68,147,1); 
+}
+
+a.nav-link.bowser.active {
+    font-weight: bold;
+    color: orange; 
+}
+
+/* Add an arrow before the active link */
+.nav-link.active::before {
+    content: '➤'; /* Add an arrow or any other symbol before the link text */
+    margin-right: 5px;
+}
+
 
 
 /* ---- Theme State Rules ---- */

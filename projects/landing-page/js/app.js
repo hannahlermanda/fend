@@ -41,56 +41,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navList = document.getElementById('navbar__list');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    // Function to check if an element is in the viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        console.log(rect);
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    // Function to set active section and link
-    function setActiveSectionAndLink() {
-        sections.forEach((section) => {
-            if (isInViewport(section)) {
-                section.classList.add('your-active-class');
-                const sectionName = section.getAttribute('data-nav');
-                console.log(`Section ${sectionName} is active.`);
-                setActiveLink(sectionName);
-            } else {
-                section.classList.remove('your-active-class');
-                const sectionName = section.getAttribute('data-nav');
-                console.log(`Section ${sectionName} is no longer active.`);
-            }
-        });
-    }
-
-    // Function to set active link
-    function setActiveLink(activeSectionName) {
-        navLinks.forEach((navLink) => {
-            const navLinkText = navLink.textContent.toLowerCase().replace(' ', '-');
-            console.log(`Nav Link Text: ${navLinkText}`);
-        console.log(`Active Section Name: ${activeSectionName.toLowerCase().replace(' ', '-')}`);
-            if (navLinkText === activeSectionName.toLowerCase().replace(' ', '-')) {
-                navLink.classList.add('active');
-            } else {
-                navLink.classList.remove('active');
-            }
-        });
-    }
-    
-
-    // Initial call to set active section and link on page load
-    setActiveSectionAndLink();
-
-    // Call setActiveSectionAndLink on scroll
-    window.addEventListener('scroll', setActiveSectionAndLink);
 
     // Build the navigation menu
     sections.forEach((section) => {
@@ -98,32 +48,111 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLink = document.createElement('a');
         const characterName = section.getAttribute('data-nav');
         
-        navLink.classList.add('nav-link', characterName.toLowerCase().replace(' ', '-'));
-        
-        if (characterName === 'Mario') {
-            navLink.classList.add('mario-link');
-        } else if (characterName === 'Luigi') {
-            navLink.classList.add('luigi-link');
-        } else if (characterName === 'Princess Peach') {
-            navLink.classList.add('peach-link');
-        } else if (characterName === 'Bowser') {
-            navLink.classList.add('bowser-link');
-        }
-        
+        navLink.classList.add('nav-link', characterName.toLowerCase().replace(/ /g, '-'));
         navLink.textContent = characterName;
         navLink.setAttribute('href', `#${section.id}`);
+        
         navItem.appendChild(navLink);
         navList.appendChild(navItem);
     });
 
-    // Add a click event listener to scroll to the section and highlight the link
-    navLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetSection = document.querySelector(link.getAttribute('href'));
-            targetSection.scrollIntoView({ behavior: 'smooth' });
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Create an IntersectionObserver to track active sections and highlight the navigation link
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove the 'active' class from all menu links
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Get the ID of the currently intersecting section
+                const currentSectionId = entry.target.getAttribute('id');
+
+                // Add the 'active' class only to the corresponding menu link
+                const correspondingLink = document.querySelector(`[href="#${currentSectionId}"]`);
+                if (correspondingLink) {
+                    correspondingLink.classList.add('active');
+                }
+            }
         });
+    }, { threshold: 0.5 });
+
+    // Observe each section
+    sections.forEach(section => {
+        observer.observe(section);
     });
+
+    const marioSection = document.getElementById('mario');
+    if (marioSection) {
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Hide M'; // Initial text content
+        toggleButton.classList.add('toggle-button');
+        toggleButton.addEventListener('click', () => {
+            if (marioSection.style.display === 'none') {
+                marioSection.style.display = 'block';
+                toggleButton.textContent = 'Hide M'; // Change text content
+            } else {
+                marioSection.style.display = 'none';
+                toggleButton.textContent = 'Show M'; // Change text content
+            }
+        });
+
+        marioSection.insertAdjacentElement('beforebegin', toggleButton);
+    }
+
+    const luigiSection = document.getElementById('luigi');
+    if (luigiSection) {
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Hide L'; // Initial text content
+        toggleButton.classList.add('toggle-button');
+        toggleButton.addEventListener('click', () => {
+            if (luigiSection.style.display === 'none') {
+                luigiSection.style.display = 'block';
+                toggleButton.textContent = 'Hide L'; // Change text content
+            } else {
+                luigiSection.style.display = 'none';
+                toggleButton.textContent = 'Show L'; // Change text content
+            }
+        });
+
+        luigiSection.insertAdjacentElement('beforebegin', toggleButton);
+    }
+
+    const peachSection = document.getElementById('peach');
+    if (peachSection) {
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Hide P'; // Initial text content
+        toggleButton.classList.add('toggle-button');
+        toggleButton.addEventListener('click', () => {
+            if (peachSection.style.display === 'none') {
+                peachSection.style.display = 'block';
+                toggleButton.textContent = 'Hide P'; // Change text content
+            } else {
+                peachSection.style.display = 'none';
+                toggleButton.textContent = 'Show P'; // Change text content
+            }
+        });
+
+        peachSection.insertAdjacentElement('beforebegin', toggleButton);
+    }
+
+    const bowserSection = document.getElementById('bowser');
+    if (bowserSection) {
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Hide B'; // Initial text content
+        toggleButton.classList.add('toggle-button');
+        toggleButton.addEventListener('click', () => {
+            if (bowserSection.style.display === 'none') {
+                bowserSection.style.display = 'block';
+                toggleButton.textContent = 'Hide B'; // Change text content
+            } else {
+                bowserSection.style.display = 'none';
+                toggleButton.textContent = 'Show B'; // Change text content
+            }
+        });
+
+        bowserSection.insertAdjacentElement('beforebegin', toggleButton);
+    }
 });
 
 // build the nav
