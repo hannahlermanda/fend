@@ -12,7 +12,29 @@ document.addEventListener('DOMContentLoaded', () => {
         navLink.textContent = characterName;
         navLink.setAttribute('href', `#${section.id}`);
 
-        // Prevent default link behavior of going to a new page
+   // Get a reference to the h1#main_header element
+   const mainHeader = document.getElementById('main_header');
+
+   // Function to handle element visibility
+   function handleElementVisibility() {
+       const rect = mainHeader.getBoundingClientRect();
+
+       // Check if the element is fully visible in the viewport
+       if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+           mainHeader.classList.add('dance'); // Add the dance class
+       } else {
+           mainHeader.classList.remove('dance'); // Remove the dance class
+       }
+   }
+
+   // Call the handleElementVisibility function on scroll and resize events
+   window.addEventListener('scroll', handleElementVisibility);
+   window.addEventListener('resize', handleElementVisibility);
+
+   // Initial call to set the element's visibility state
+   handleElementVisibility();
+
+    // Prevent default link behavior of going to a new page
         navLink.addEventListener('click', (event) => {
             event.preventDefault(); 
             section.scrollIntoView({ behavior: 'smooth' }); 

@@ -374,6 +374,32 @@ a.nav-link.bowser.active {
 	}
 }
 
+/*Header Dance*/
+/* Animation for squiggly dance */
+@keyframes danceAnimation {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(5px) rotate(-5deg);
+    }
+    50% {
+        transform: translateX(0) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-5px) rotate(5deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* Apply animation to the "dance" class */
+#main_header.dance {
+    animation: danceAnimation 1s infinite;
+}
+
+
 /*Media Queries for Characters*/
 @media only screen and (max-width: 915px){
     #mario .content-container,
