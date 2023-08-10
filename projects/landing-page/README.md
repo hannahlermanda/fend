@@ -1,13 +1,33 @@
-# Landing Page Project
+# Landing Page Project - Super Mario
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Installation](#installation_instructions)
+* [Usage](#usage)
+* [License](#license)
 
-## Instructions
+## Installation_Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+You can clone the repo with this link:
 
-To get started, open `js/app.js` and start building out the app's functionality
+https://github.com/hannahlermanda/fend.git
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+The "Landing Page Project" is in the "refresh-2019" branch in the folder named "projects".
+
+Or you can use this in the terminal:
+
+git clone -b refresh-2019 https://github.com/hannahlermanda/fend.git
+
+## Usage
+
+Open the `index.html` file in a web browser to view the Super Mario Landing Page.
+
+Features:
+    - Smooth scroll to each character's bio
+    - Smooth scroll back to the top of the page
+    - Adjust the page responsively
+    - See active navigation
+
+## License
+
+This project is licensed under the MIT License.

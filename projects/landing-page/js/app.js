@@ -1,48 +1,8 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Comments should be present at the beginning of each procedure and class.
- * Great to have comments before crucial code sections within the procedure.
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navList = document.getElementById('navbar__list');
 
-    // Build the navigation menu
+    // Navigation Menu
     sections.forEach((section) => {
         const navItem = document.createElement('li');
         const navLink = document.createElement('a');
@@ -58,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Create an IntersectionObserver to track active sections and highlight the navigation link
+    // Track active sections and highlight the active navigation link
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -68,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Get the ID of the currently intersecting section
                 const currentSectionId = entry.target.getAttribute('id');
 
-                // Add the 'active' class only to the corresponding menu link
+                // Add the 'active' class only to the active menu link section
                 const correspondingLink = document.querySelector(`[href="#${currentSectionId}"]`);
                 if (correspondingLink) {
                     correspondingLink.classList.add('active');
@@ -86,15 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const marioSection = document.getElementById('mario');
     if (marioSection) {
         const toggleButton = document.createElement('button');
-        toggleButton.textContent = 'Hide M'; // Initial text content
+        toggleButton.textContent = 'Hide M'; 
         toggleButton.classList.add('toggle-button');
         toggleButton.addEventListener('click', () => {
             if (marioSection.style.display === 'none') {
                 marioSection.style.display = 'block';
-                toggleButton.textContent = 'Hide M'; // Change text content
+                toggleButton.textContent = 'Hide M'; 
             } else {
                 marioSection.style.display = 'none';
-                toggleButton.textContent = 'Show M'; // Change text content
+                toggleButton.textContent = 'Show M'; 
             }
         });
 
@@ -104,15 +64,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const luigiSection = document.getElementById('luigi');
     if (luigiSection) {
         const toggleButton = document.createElement('button');
-        toggleButton.textContent = 'Hide L'; // Initial text content
+        toggleButton.textContent = 'Hide L'; 
         toggleButton.classList.add('toggle-button');
         toggleButton.addEventListener('click', () => {
             if (luigiSection.style.display === 'none') {
                 luigiSection.style.display = 'block';
-                toggleButton.textContent = 'Hide L'; // Change text content
+                toggleButton.textContent = 'Hide L'; 
             } else {
                 luigiSection.style.display = 'none';
-                toggleButton.textContent = 'Show L'; // Change text content
+                toggleButton.textContent = 'Show L'; 
             }
         });
 
@@ -122,15 +82,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const peachSection = document.getElementById('peach');
     if (peachSection) {
         const toggleButton = document.createElement('button');
-        toggleButton.textContent = 'Hide P'; // Initial text content
+        toggleButton.textContent = 'Hide P'; 
         toggleButton.classList.add('toggle-button');
         toggleButton.addEventListener('click', () => {
             if (peachSection.style.display === 'none') {
                 peachSection.style.display = 'block';
-                toggleButton.textContent = 'Hide P'; // Change text content
+                toggleButton.textContent = 'Hide P'; 
             } else {
                 peachSection.style.display = 'none';
-                toggleButton.textContent = 'Show P'; // Change text content
+                toggleButton.textContent = 'Show P'; 
             }
         });
 
@@ -140,15 +100,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const bowserSection = document.getElementById('bowser');
     if (bowserSection) {
         const toggleButton = document.createElement('button');
-        toggleButton.textContent = 'Hide B'; // Initial text content
+        toggleButton.textContent = 'Hide B'; 
         toggleButton.classList.add('toggle-button');
         toggleButton.addEventListener('click', () => {
             if (bowserSection.style.display === 'none') {
                 bowserSection.style.display = 'block';
-                toggleButton.textContent = 'Hide B'; // Change text content
+                toggleButton.textContent = 'Hide B'; 
             } else {
                 bowserSection.style.display = 'none';
-                toggleButton.textContent = 'Show B'; // Change text content
+                toggleButton.textContent = 'Show B'; 
             }
         });
 
@@ -157,15 +117,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-    // Function to handle scrolling to the top of the page
+    // Scroll to Top 
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Event listener for the "Scroll Back to Top" button
+    // Event listener for the "Back to Top" btn
     scrollToTopBtn.addEventListener('click', scrollToTop);
 
-    // Show/hide the scroll to top button based on scroll position and screen size
+    // Show/hide the "Back to Top" button based on scroll position and screen size
     function handleScrollAndSize() {
         if (window.scrollY > 200 && window.innerWidth > 600) { 
             scrollToTopBtn.style.display = 'block';
@@ -174,35 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Initial call to handleScrollAndSize to set initial state
+    // Call handleScrollAndSize
     handleScrollAndSize();
 
-    // Add scroll event listener
+    // Scroll event listener
     window.addEventListener('scroll', handleScrollAndSize);
-    // Add resize event listener
+    // Resize event listener
     window.addEventListener('resize', handleScrollAndSize);
 
 });
-
-// build the nav
-
-
-// Add class 'active' to section when near top of viewport
-
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
-
