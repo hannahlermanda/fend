@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
 
+    //Toggle Buttons
     const marioSection = document.getElementById('mario');
     if (marioSection) {
         const toggleButton = document.createElement('button');
@@ -153,6 +154,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
         bowserSection.insertAdjacentElement('beforebegin', toggleButton);
     }
+
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    // Function to handle scrolling to the top of the page
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Event listener for the "Scroll Back to Top" button
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+
+    // Show/hide the scroll to top button based on scroll position and screen size
+    function handleScrollAndSize() {
+        if (window.scrollY > 200 && window.innerWidth > 600) { 
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    }
+
+    // Initial call to handleScrollAndSize to set initial state
+    handleScrollAndSize();
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScrollAndSize);
+    // Add resize event listener
+    window.addEventListener('resize', handleScrollAndSize);
+
 });
 
 // build the nav

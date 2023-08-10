@@ -11,6 +11,7 @@
 /*Whole Document*/
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* ---- Base Rules ---- */
@@ -67,8 +68,27 @@ section {
     min-height: 80vh;
 }
 
-
-/* ---- Module Rules ---- */
+/*Scroll To Top*/
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; 
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-image: url("https://www.svgrepo.com/show/13695/star.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+    text-overflow: clip;
+    background-blend-mode: overlay;
+}
 
 /* Navigation Styles*/
 .navbar__menu ul {
@@ -79,6 +99,7 @@ section {
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-around;
+    
 }
 
 .navbar__menu li {
@@ -141,15 +162,10 @@ a.nav-link.bowser:hover {
     z-index: 5;
 }
 
-/* Add a class to the active navigation link */
-.nav-active {
-    color: #ff0000; /* Set the desired color for the active link */
-    font-weight: bold; /* Set the desired font weight for the active link */
-  }
-
 /*Hero Styles*/
 .main__hero{
     color: white;
+    padding-bottom: 100px;
 }
 
 /* Footer Styles */
@@ -199,7 +215,7 @@ section:nth-of-type(even) .landing__container {
 /*Bio Styling*/
 #mario .landing__container,
 #peach .landing__container {
-    text-align: right; /* Center the text */
+    text-align: right; 
   }
   
   #mario h2,
@@ -235,6 +251,12 @@ section:nth-of-type(even) .landing__container {
     text-align: center;
   }
 
+  #luigi > div > div > p,
+  #bowser > div > div > p {
+    flex: 1;
+    text-align: center;
+    margin-right: 20px;
+  }
 
 /* Styling for the Toggle Section button */
 .toggle-button {
@@ -245,7 +267,6 @@ section:nth-of-type(even) .landing__container {
     border: none;
     cursor: pointer;
     margin-bottom: 10px;
-    font-size: 0; /* Hide text content */
     background-image: url("https://www.svgrepo.com/show/13695/star.svg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -387,4 +408,60 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+/*Media Queries for Characters*/
+@media only screen and (max-width: 915px){
+    #mario .content-container,
+    #luigi .content-container,
+    #peach .content-container,
+    #bowser .content-container{
+        display:flex;
+        flex-direction: column;
+    }
+
+    #luigi .content-container,
+    #bowser .content-container{
+        display:flex;
+        flex-direction: column-reverse;
+    }
+
+    #mario h2,
+    #peach h2,
+    #luigi h2,
+    #bowser h2{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    h1#main_header{
+        font-size: 100px;
+        text-align: center;
+        margin-top: 300px;
+    }
+}
+
+@media only screen and (max-width: 645px){
+    a.nav-link.mario,
+    a.nav-link.luigi,
+    a.nav-link.princess-peach,
+    a.nav-link.bowser{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    a.nav-link.mario,
+    a.nav-link.luigi,
+    a.nav-link.princess-peach,
+    a.nav-link.bowser{
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 560px){
+    .navbar__menu ul{
+        flex-direction: column;
+    }
 }
