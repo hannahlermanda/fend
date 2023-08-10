@@ -12,18 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
         navLink.textContent = characterName;
         navLink.setAttribute('href', `#${section.id}`);
 
-   // Get a reference to the h1#main_header element
+  
    const mainHeader = document.getElementById('main_header');
 
-   // Function to handle element visibility
+   // Element visibility (h1)
    function handleElementVisibility() {
        const rect = mainHeader.getBoundingClientRect();
 
-       // Check if the element is fully visible in the viewport
+       // Check if h1 is fully visible in the viewport
        if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-           mainHeader.classList.add('dance'); // Add the dance class
+           mainHeader.classList.add('h1_dance'); 
        } else {
-           mainHeader.classList.remove('dance'); // Remove the dance class
+           mainHeader.classList.remove('h1_dance'); 
        }
    }
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
    window.addEventListener('scroll', handleElementVisibility);
    window.addEventListener('resize', handleElementVisibility);
 
-   // Initial call to set the element's visibility state
+   // Call the element's visibility state
    handleElementVisibility();
 
     // Prevent default link behavior of going to a new page
@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Remove the 'active' class from all menu links
                 navLinks.forEach(link => link.classList.remove('active'));
 
-                // Get the ID of the currently intersecting section
+                // Get the ID of the current section
                 const currentSectionId = entry.target.getAttribute('id');
 
-                // Add the 'active' class only to the active menu link section
+                // Add the 'active' class only to the active section
                 const correspondingLink = document.querySelector(`[href="#${currentSectionId}"]`);
                 if (correspondingLink) {
                     correspondingLink.classList.add('active');

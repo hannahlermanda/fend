@@ -395,7 +395,7 @@ a.nav-link.bowser.active {
 }
 
 /* Apply animation to the "dance" class */
-#main_header.dance {
+#main_header.h1_dance {
     animation: danceAnimation 1s infinite;
 }
 
