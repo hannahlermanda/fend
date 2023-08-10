@@ -11,6 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
         navLink.classList.add('nav-link', characterName.toLowerCase().replace(/ /g, '-'));
         navLink.textContent = characterName;
         navLink.setAttribute('href', `#${section.id}`);
+
+        // Prevent default link behavior of going to a new page
+        navLink.addEventListener('click', (event) => {
+            event.preventDefault(); 
+            section.scrollIntoView({ behavior: 'smooth' }); 
+        });
         
         navItem.appendChild(navLink);
         navList.appendChild(navItem);
@@ -36,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.5 });
+    
 
     // Observe each section
     sections.forEach(section => {

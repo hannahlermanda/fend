@@ -108,7 +108,7 @@ ul#navbar__list{
     background: url("https://static.wikia.nocookie.net/fantendo/images/9/99/NSMBU_Sky_Background_1.png/revision/latest?cb=20121215224646");
     background-size:cover;
     background-repeat:no-repeat;
-    min-height: 150px;
+    height: 100px;
 }
 
 .nav-link{
@@ -427,5 +427,38 @@ a.nav-link.bowser.active {
 @media only screen and (max-width: 560px){
     .navbar__menu ul{
         flex-direction: column;
+        max-height: 50px;
+        font-size: 20px;
+    }
+
+    .nav-link{
+        margin:10px;
+    }
+}
+
+@media only screen and (max-width: 530px){
+    .navbar__menu ul{
+        flex-direction: row;
+        max-height: 50px;
+    }
+
+    .nav-link{
+        margin:10px;
+    }
+
+    a.nav-link.mario,
+    a.nav-link.luigi,
+    a.nav-link.princess-peach,
+    a.nav-link.bowser{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    a.nav-link.mario,
+    a.nav-link.luigi,
+    a.nav-link.princess-peach,
+    a.nav-link.bowser{
+        font-size: 15px;
     }
 }
