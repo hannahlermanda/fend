@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     //Test
-    getWeatherData('194016') //San Francisco
+    getWeatherData('91608') //Universal City
     .then((data) => {
         console.log(data); // Check if data is logged to the console
     })
