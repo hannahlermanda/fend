@@ -12,7 +12,7 @@ body{
 
 #app{
     display: grid;
-    grid-template-rows: auto auto auto auto auto; /* Adjust the number of rows as needed */
+    grid-template-rows: auto auto auto auto auto; 
     gap: 1em;
     justify-content: center;
     align-content: center;

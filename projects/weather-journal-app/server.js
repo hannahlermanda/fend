@@ -32,5 +32,5 @@ app.post('/add', (req, res) => {
       ...projectData,
       ...newData,
     };
-    res.status(201).json({ message: 'Data received successfully' }); // Send a JSON response
+    res.status(201).json({ message: 'Data received successfully' }); 
   });

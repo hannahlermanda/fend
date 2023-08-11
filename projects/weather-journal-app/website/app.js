@@ -3,14 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // Personal API Key for OpenWeatherMap API
 const apiKey = '7e7d3aabe6867589934b102970f644d3&units=imperial';
 
-/* Global Variables */
+// Global Variables 
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip=';
 
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
-
-/* Function called by event listener */
 
 // Function to make a GET request to OpenWeatherMap API
 const getWeatherData = async (zip) => {
@@ -24,7 +22,7 @@ const getWeatherData = async (zip) => {
       return data;
     } catch (error) {
       console.error('Error:', error);
-      throw error; // Rethrow the error to be caught in your click event handler
+      throw error; 
     }
   };
   
@@ -44,7 +42,6 @@ document.getElementById('generate').addEventListener('click', () => {
         // Make a POST request to add data to the app
         postData('/add', postDataObject)
           .then(() => {
-            // Call the updateUI function to update the UI with the retrieved data
             updateUI();
           })
           .catch((error) => {
@@ -56,7 +53,7 @@ document.getElementById('generate').addEventListener('click', () => {
       });
   });
   
-/* Function to GET Web API Data */
+// Function to GET Web API Data 
 const getData = async (url) => {
     const response = await fetch(url);
     try {
@@ -67,7 +64,7 @@ const getData = async (url) => {
     }
   };
   
-  /* Function to POST data */
+  // Function to POST data 
   const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
       method: 'POST',
@@ -88,8 +85,7 @@ const getData = async (url) => {
     }
   };
   
-/* Function to GET Project Data */
-// Function to update the UI dynamically
+// Function to GET Project Data - Updates the UI dynamically 
 const updateUI = async () => {
     const request = await fetch('/all'); // Assuming this endpoint returns the stored project data
     try {
@@ -110,7 +106,7 @@ const updateUI = async () => {
   };
   
 //Test
-  getWeatherData('10001') // Use a valid zip code
+  getWeatherData('10001') //New York
   .then((data) => {
     console.log(data); // Check if data is logged to the console
   })
