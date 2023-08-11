@@ -17,7 +17,7 @@ body{
 }
 
 .holder{
-
+    color: white;
 }
 
 .entry{
@@ -25,26 +25,26 @@ body{
 }
 
 #entryHolder{
-
+    color: white;
 }
 
 #date{
-
+    color: white;
 }
 
 #temp{
-
+    color: white;
 }
 
 #content{
-
+    color: white;
 }
 
 .headline {
-
+    color: yellow;
 }
 .title{
-
+    color: white;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
