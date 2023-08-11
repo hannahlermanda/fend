@@ -1,5 +1,11 @@
+html{
+    background: url('https://coalregioncanary.com/wp-content/uploads/2020/08/summer.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 body{
-    background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -8,7 +14,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background: #f23557;
+
     color: #f0d43a;
     justify-content: center;
     grid-gap: 1em;
@@ -41,8 +47,17 @@ body{
 }
 
 .headline {
-    color: yellow;
-}
+    font-size: 100px;
+    text-align: center;
+    text-decoration: underline solid gold;
+    color: #FFFFFF;
+    text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9,
+                0 3px 0 #bbb, 0 4px 0 #b9b9b9, 
+                0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25),
+                0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+                }
 .title{
     color: white;
 }
@@ -51,14 +66,16 @@ body{
 label{
     display:block;
     font-size: 27px;
+    text-shadow: 2px 0 #0f0f0f, -2px 0 #080808, 0 2px #0a0a0a, 0 -2px #080808,
+             1px 1px #0c0c0c, -1px -1px #131212, 1px -1px #0e0d0d, -1px 1px #020202;
 }
 
 input{
     display:block;
     height: 60px;
     width: 320px;
-    background:#22b2da;
-    color: #f0d43a;
+    background:#ff2475;
+    color: gold;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
@@ -73,14 +90,15 @@ button{
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
+    cursor: pointer;
 }
 h1{
     font-size: 36px;
 }
 
 textarea{
-    background:#22b2da;
-    color: #f0d43a;
+    background:#ff2475;
+    color: gold;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
