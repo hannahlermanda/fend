@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>Test</title>
     </head>
-
     <body>
 
         <header>
@@ -19,17 +18,14 @@
         <main>
             <section>
                 <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    <input id="text-input" name="input" placeholder="Enter text for sentiment analysis"></textarea>
+                    <input id="analyze-btn" type="button" value="Analyze Sentiment">
                 </form>
-            </section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
-            </section>
+                <section>
+                    <strong>Form Results:</strong>
+                    <div id="results"></div>
+                </section>
         </main>
-
         <footer>
             <p>This is a footer</p>
         </footer>
