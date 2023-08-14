@@ -2,6 +2,8 @@ form {
     border: 1px solid #545454;
     border-radius: 3px;
     padding: 40px;
+    background-color: rgba(52, 45, 49, 0.44);
+    padding: 50px;
 }
 
 input {
@@ -9,4 +11,26 @@ input {
     width: 100%;
     line-height: 16px;
     margin: 10px 0;
+}
+
+section{
+
+    #form_results{
+        background-color: palevioletred;
+        font-family: 'Oswald', sans-serif;
+        line-height: 1.5;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 50px;
+    }
+    
+    strong{
+        font-size: 30px;
+    }
+
+    #results{
+        font-size: 20px;
+    }
 }

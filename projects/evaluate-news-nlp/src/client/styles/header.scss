@@ -1,5 +1,16 @@
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 40px;
+    background-color: rgba(155, 137, 113, 1);
+
+    #real_logo{
+        max-height: 50px;
+    }
+
+    .nav{
+        font-size: 20px;
+        font-family: 'Oswald', sans-serif;
+    }
 }

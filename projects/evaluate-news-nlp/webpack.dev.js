@@ -26,7 +26,19 @@ module.exports = {
             {
                 test: /.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
-            }
+            },
+
+            {
+                test: /\.(png|jpg|jpeg|gif)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: {
+                      name: 'images/[name].[ext]',
+                    },
+                  },
+                ],
+              },
         ]
     },
     plugins: [
@@ -50,6 +62,6 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/', // Add this line
+        publicPath: '/', 
     }
 }

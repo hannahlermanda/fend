@@ -2,32 +2,56 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+        <title>Sentiment Analysis</title>
     </head>
     <body>
 
         <header>
-            <div class="">
-                Logo
+            <div id="logo">
+                <img id= "real_logo" src="https://www.freeiconspng.com/thumbs/analysis-icon/analysis-icon-3.png">
             </div>
-            <div class="">
-                navigation
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a href="#text_analyzer">Input URL</a>
+                    </li>
+                </ul>
             </div>
         </header>
-
+        <h1>Sentiment Analyzer</h1>
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="text-input" name="input" placeholder="Enter text for sentiment analysis"></textarea>
+                <form id="text_analyzer" onsubmit="return handleSubmit(event)">
+                    <input id="text-input" name="input" placeholder="Enter text for sentiment analysis">
                     <input id="analyze-btn" type="button" value="Analyze Sentiment">
                 </form>
-                <section>
+                <section id="form_results">
                     <strong>Form Results:</strong>
-                    <div id="results"></div>
+                    <div id="results">
+                        <p id="score-tag"></p>
+                        <p id="confidence"></p>
+                        <p id="irony"></p>
+                        <p id="subjectivity"></p>
+                        <p id="agreement"></p>
+                        <p id="text"></p>
+                        <p id="polarity"></p>
+                    </div>
                 </section>
         </main>
         <footer>
-            <p>This is a footer</p>
+            <p>DISCLAIMER: This analyzer is just for fun</p>
         </footer>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performance
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('./custom-service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>

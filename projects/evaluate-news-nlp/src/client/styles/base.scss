@@ -1,14 +1,38 @@
+$primary: rgba(52, 45, 49, 0.94);
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-image: url('https://img.freepik.com/premium-psd/ripped-old-newspaper-brown-background_536881-375.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main {
     flex: 2;
+    margin: 50px;
 }
 
 section {
     max-width: 800px;
     margin: 50px auto;
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    color: $primary;
+    text-shadow: 0px 0px 5px #146e67f8;
+    font-size: 100px;
+    text-align: center;
+    margin-top: 50px;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 450px){
+    h1{
+        font-size: 70px;
+    }
+    
 }

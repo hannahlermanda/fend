@@ -1,55 +1,36 @@
-const path = require('path')
+const path = require('path');
 const dotenv = require('dotenv');
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+dotenv.config();
 
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
-const MeaningCloud = require('meaning-cloud')
+const express = require('express');
+const mockAPIResponse = require('./mockAPI.js');
+const MeaningCloud = require('meaning-cloud');
 
-const app = express()
+const app = express();
 
-app.use(express.static('dist'))
-app.use(express.json())
-
-console.log(__dirname)
+app.use(express.static('dist'));
+app.use(express.json());
 
 // Your MeaningCloud API key
 const API_KEY = process.env.API_KEY;
 
-console.log(`Your API key is ${process.env.API_KEY}`);
-
 // Initialize the meaning-cloud library
 const meaning = MeaningCloud({
   key: API_KEY,
-  secure: true // You can adjust this based on your needs
+  secure: true 
 });
 
 app.get('/', function (req, res) {
   res.sendFile(path.resolve(__dirname, '../client/views/index.html'));
 });
 
-
-// designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
-})
+  console.log('Example app listening on port 8080!');
+});
 
 app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
-
-//Service Worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/dist/custom-service-worker.js')
-      .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch(error => {
-          console.error('Service Worker registration failed:', error);
-      });
-  });
-}
+  res.send(mockAPIResponse);
+});
 
 app.post('/analyze', async function (req, res) {
   console.log('Analyzing sentiment...');

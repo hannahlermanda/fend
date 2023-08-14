@@ -1,3 +1,8 @@
 footer{
-    background-color: aqua;
+    background-color: rgba(155, 137, 113, 1);
+    height: 100px;
+    text-decoration: underline solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

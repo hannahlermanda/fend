@@ -3,7 +3,7 @@ import { checkForName } from "./nameChecker"
 async function handleSubmit(event) {
     event.preventDefault()
 
-    // check what text was put into the form field
+    //Check what text was put into the form field
     let formText = document.getElementById('name').value
     checkForName(formText)
 
@@ -15,6 +15,8 @@ async function handleSubmit(event) {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+
+
 }
 
 export { handleSubmit }

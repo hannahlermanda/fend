@@ -1,3 +1,5 @@
+//Check name
+
 function checkForName(inputText) {
     const names = ["Picard", "Riker", "Data", "Geordi", "Worf"];
     
@@ -6,6 +8,7 @@ function checkForName(inputText) {
     } else {
       return false;
     }
+    
   }
   
   export { checkForName };
